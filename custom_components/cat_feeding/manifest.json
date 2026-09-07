@@ -1,0 +1,11 @@
+{
+  "domain": "cat_feeding",
+  "name": "Cat Feeding Tracker",
+  "codeowners": ["@steve-krieghoff"],
+  "config_flow": true,
+  "documentation": "https://github.com/steve-krieghoff/haos",
+  "issue_tracker": "https://github.com/steve-krieghoff/haos/issues",
+  "iot_class": "calculated",
+  "requirements": [],
+  "version": "1.0.0"
+}

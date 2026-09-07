@@ -1,0 +1,48 @@
+{
+  "title": "Cat Feeding Tracker",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add a cat",
+        "data": {
+          "name": "Cat's name",
+          "default_portion_g": "Default portion (g) for the quick-feed button",
+          "daily_target_g": "Daily target (g)"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "A cat with this name is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Cat Feeding Tracker settings",
+        "data": {
+          "default_portion_g": "Default portion (g) for the quick-feed button",
+          "daily_target_g": "Daily target (g)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "today_total": { "name": "Food total today" },
+      "today_count": { "name": "Feedings today" },
+      "last_feeding_time": { "name": "Last feeding" },
+      "last_feeding_amount": { "name": "Last amount" },
+      "weekly_average": { "name": "7-day average" },
+      "daily_target_remaining": { "name": "Remaining to daily target" }
+    },
+    "button": {
+      "feed_now": { "name": "Feed now" }
+    }
+  },
+  "services": {
+    "log_feeding": {
+      "name": "Log feeding",
+      "description": "Logs a feeding with amount, food type and note."
+    }
+  }
+}

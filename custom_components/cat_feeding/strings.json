@@ -1,0 +1,48 @@
+{
+  "title": "Cat Feeding Tracker",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Katze hinzufügen",
+        "data": {
+          "name": "Name der Katze",
+          "default_portion_g": "Standard-Portion (g) für den Schnell-Button",
+          "daily_target_g": "Tagesziel (g)"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Eine Katze mit diesem Namen ist bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Cat Feeding Tracker Einstellungen",
+        "data": {
+          "default_portion_g": "Standard-Portion (g) für den Schnell-Button",
+          "daily_target_g": "Tagesziel (g)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "today_total": { "name": "Futter heute gesamt" },
+      "today_count": { "name": "Fütterungen heute" },
+      "last_feeding_time": { "name": "Letzte Fütterung" },
+      "last_feeding_amount": { "name": "Letzte Menge" },
+      "weekly_average": { "name": "Durchschnitt 7 Tage" },
+      "daily_target_remaining": { "name": "Restmenge bis Tagesziel" }
+    },
+    "button": {
+      "feed_now": { "name": "Jetzt füttern" }
+    }
+  },
+  "services": {
+    "log_feeding": {
+      "name": "Fütterung eintragen",
+      "description": "Trägt eine Fütterung mit Menge, Futtersorte und Notiz ein."
+    }
+  }
+}

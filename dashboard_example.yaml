@@ -1,0 +1,52 @@
+# Beispiel-Dashboard-Karte für Cat Feeding Tracker.
+#
+# WICHTIG: Home Assistant leitet die entity_ids automatisch aus Katzenname +
+# Sensorname ab (inkl. Umlaut-Umwandlung, z.B. ü -> u). Bitte VOR dem
+# Einfügen unter Entwicklerwerkzeuge -> Zustände nach "cat_feeding" bzw. dem
+# Katzennamen filtern und die untenstehenden entity_ids entsprechend
+# anpassen - die hier verwendeten IDs sind nur Beispiele für eine Katze
+# namens "Katze".
+
+type: vertical-stack
+cards:
+  - type: entities
+    title: Katze - Fütterung
+    entities:
+      - entity: sensor.katze_futter_heute_gesamt
+        name: Heute gesamt
+      - entity: sensor.katze_futterungen_heute
+        name: Fütterungen heute
+      - entity: sensor.katze_letzte_futterung
+        name: Letzte Fütterung
+      - entity: sensor.katze_letzte_menge
+        name: Letzte Menge
+      - entity: sensor.katze_durchschnitt_7_tage
+        name: Durchschnitt 7 Tage
+      - entity: sensor.katze_restmenge_bis_tagesziel
+        name: Rest bis Tagesziel
+
+  - type: button
+    entity: button.katze_jetzt_futtern
+    name: Jetzt füttern (Standardportion)
+    icon: mdi:food-drumstick
+    tap_action:
+      action: toggle
+
+  - type: statistics-graph
+    title: Futter pro Tag (Verlauf)
+    entities:
+      - sensor.katze_futter_heute_gesamt
+    stat_types:
+      - mean
+    period: day
+    days_to_show: 30
+
+# Optionales Formular (z.B. über eine "input_text"-Helper-Kombination) ist nicht
+# nötig - für eine genaue Menge nutze stattdessen die Aktion/den Service
+# "cat_feeding.log_feeding" z.B. über ein Skript, eine Kurzbefehl-App am Handy
+# oder direkt über Sprachassistent/Assist:
+#
+#   Assist-Beispielsatz (in Assist-Einstellungen als Skript/Szene hinterlegen):
+#     Aktion: cat_feeding.log_feeding
+#     Daten:  amount_g: 50
+#             food_type: Nassfutter Huhn
